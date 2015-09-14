@@ -8,7 +8,7 @@ define(function(require,exports,module){
         if(typeof target === 'string'){
             el = document.querySelector(target);
         }
-
+        // streams.push(stream);
         stream = streamDocument(el,html);
         stream.start();
         return stream;

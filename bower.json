@@ -1,0 +1,32 @@
+{
+  "name": "doc-write-stream",
+  "main": "doc-write-stream.js",
+  "version": "1.0.0-beta1",
+  "homepage": "https://github.com/rmunson/doc-write-stream",
+  "authors": [
+    "Russell Munson"
+  ],
+  "description": "Asynchronously stream document.write commands safely into a completed document",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "document.write",
+    "asynchonous",
+    "async",
+    "document stream",
+    "stream",
+    "sandbox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.20"
+  }
+}

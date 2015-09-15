@@ -1,22 +1,40 @@
+<!doctype html>
 <html>
 <head>
     <title>Test my snizz</title>
     <script type="text/javascript" src="../bower_components/requirejs/require.js"></script>
 </head>
 <body>
-    <div class="face"></div>
+    <div class="face">blood</div>
     <script type="text/javascript">
         require( ["../doc-write-stream"],function(docWriteStream){
             var rand=Math.floor(Math.random()*99999999999);
-            var test="<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be…amp;version=1.5&amp;language=javascript&amp;format=wap&amp;cb="+rand+"\"></scr"+"ipt>";
 
-            var test = "<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be&site_id=3275&target_params=SIZE_WIDTH%3D%3E320%7C%7CSIZE_HEIGHT%3D%3E50%7C%7CSUBSECTION_ID%3D%3EBoxscore%7C%7CSECTION_ID%3D%3EGameday%7C%7CUNIQUE_ID%3D%3E%7C%7Cdevice_density%3D%3E2.0%7C%7CDEVICE_OS%3D%3EAndroid&version=1.5&language=javascript&format=wap&cb=3754505119&_=1442175016440\"></scr"+"ipt>"
+            // var test="<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be…amp;version=1.5&amp;language=javascript&amp;format=wap&amp;cb="+rand+"\"></scr"+"ipt>";
 
-            var test="<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be&site_id=3275&target_params=SIZE_WIDTH%3D%3E300%7C%7CSIZE_HEIGHT%3D%3E250%7C%7CSUBSECTION_ID%3D%3EandroidEntry%7C%7CSECTION_ID%3D%3EGameday%7C%7CUNIQUE_ID%3D%3E%7C%7Cdevice_density%3D%3E3.0&version=1.5&language=javascript&format=wap&cb=3754505119\"></scri"+"pt>";
+            // var test = "<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be&site_id=3275&target_params=SIZE_WIDTH%3D%3E320%7C%7CSIZE_HEIGHT%3D%3E50%7C%7CSUBSECTION_ID%3D%3EBoxscore%7C%7CSECTION_ID%3D%3EGameday%7C%7CUNIQUE_ID%3D%3E%7C%7Cdevice_density%3D%3E2.0%7C%7CDEVICE_OS%3D%3EAndroid&version=1.5&language=javascript&format=wap&cb=3754505119&_=1442175016440\"></scr"+"ipt>"
+
+            // var test="<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be&site_id=3275&target_params=SIZE_WIDTH%3D%3E300%7C%7CSIZE_HEIGHT%3D%3E250%7C%7CSUBSECTION_ID%3D%3EandroidEntry%7C%7CSECTION_ID%3D%3EGameday%7C%7CUNIQUE_ID%3D%3E%7C%7Cdevice_density%3D%3E3.0&version=1.5&language=javascript&format=wap&cb=3754505119\"></scri"+"pt>";
 
             // var test="<scr"+"ipt type=\"text/javascript\" src=\"http://ads.admarvel.com/fam/javascriptGetAd.php?partner_id=437a67d408cfb2be&site_id=3225&target_params=SIZE_WIDTH%3D%3E300%7C%7CSIZE_HEIGHT%3D%3E250%7C%7CSUBSECTION_ID%3D%3EandroidEntry%7C%7CSECTION_ID%3D%3EGameday%7C%7CUNIQUE_ID%3D%3E%7C%7Cdevice_density%3D%3E3.0&version=1.5&language=javascript&format=wap&cb=3754505119\"></scri"+"pt>";
+            
+            var ends = [
+                "<scr"+"ipt type=\"text/javascript\" src=\"",
+                "\"></scr"+"ipt>"
+                ],
+                urls = [
+                    "./remote/write-div.js",
+                    "./remote/write-inline-script.js",
+                    "./remote/write-remote-and-inline-script.js",
+                    "./remote/write-remote-script.js"
+                ];
 
-            console.dir(docWriteStream(".face",test));
+            urls.forEach(function(url,index){
+                var div = document.createElement("div");
+                div.id="stream-test-" + index;
+                document.body.appendChild(div);
+                console.log(docWriteStream(div,ends.join(url)).doc);
+            });     
         });        
 
     </script>

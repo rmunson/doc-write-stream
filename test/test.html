@@ -23,17 +23,20 @@
                 "\"></scr"+"ipt>"
                 ],
                 urls = [
-                    "./remote/write-div.js",
-                    "./remote/write-inline-script.js",
-                    "./remote/write-remote-and-inline-script.js",
-                    "./remote/write-remote-script.js"
+                    // "./remote/write-div.js",
+                    // "./remote/write-inline-script.js",
+                    // "./remote/write-remote-and-inline-script.js",
+                    // "./remote/write-remote-script.js",
+                    "./remote/bad.js",
+                    "./remote/bad.js"
+
                 ];
 
             urls.forEach(function(url,index){
                 var div = document.createElement("div");
                 div.id="stream-test-" + index;
                 document.body.appendChild(div);
-                console.log(docWriteStream(div,ends.join(url)).doc);
+                console.dir(docWriteStream(div,ends.join(url)));
             });     
         });        
 

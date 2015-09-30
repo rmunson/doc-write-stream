@@ -1,7 +1,7 @@
 {
   "name": "doc-write-stream",
   "main": "doc-write-stream.js",
-  "version": "1.0.0-beta5",
+  "version": "1.0.0-beta6",
   "homepage": "https://github.com/rmunson/doc-write-stream",
   "authors": [
     "Russell Munson"
